@@ -18,25 +18,54 @@ layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 450.0
-offset_bottom = 45.0
+offset_bottom = 35.0
 text = "全国 I(19) 数学题目可视化"
 horizontal_alignment = 1
 
 [node name="Problem" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 55.0
+offset_top = 40.0
 offset_right = 450.0
-offset_bottom = 110.0
+offset_bottom = 95.0
 text = "已知函数 f(x) 的定义域为 R，且当 x < 0 时，f(x) = 2^x。对于任意 x₀ ∈ R，定义集合 D(x₀) = {d ∈ R | f(x₀ + d) > f(x₀)}。"
 autowrap_mode = 2
+
+[node name="InputSection" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 105.0
+offset_right = 450.0
+offset_bottom = 145.0
+
+[node name="InputLabel" type="Label" parent="UI/InputSection"]
+layout_mode = 2
+text = "x₀ ="
+
+[node name="X0Slider" type="HSlider" parent="UI/InputSection"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 30)
+min_value = -5.0
+max_value = 5.0
+step = 0.05
+value = -1.0
+tick_count = 11
+
+[node name="X0Value" type="Label" parent="UI/InputSection"]
+layout_mode = 2
+custom_minimum_size = Vector2(50, 30)
+text = "-1.00"
+
+[node name="ResultLabel" type="Label" parent="UI/InputSection"]
+layout_mode = 2
+text = "f(x) = ?"
 
 [node name="Tabs" type="HBoxContainer" parent="UI"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 120.0
+offset_top = 160.0
 offset_right = 450.0
-offset_bottom = 155.0
+offset_bottom = 195.0
 
 [node name="Tab1" type="Button" parent="UI/Tabs"]
 layout_mode = 2
@@ -56,44 +85,36 @@ custom_minimum_size = Vector2(140, 35)
 text = "(3) 单调性"
 flat = false
 
-[node name="InputSection" type="HBoxContainer" parent="UI"]
+[node name="SubQuestionContent" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 175.0
+offset_top = 205.0
 offset_right = 450.0
-offset_bottom = 215.0
-
-[node name="InputLabel" type="Label" parent="UI/InputSection"]
-layout_mode = 2
-text = "输入 x₀ 值："
-
-[node name="InputX" type="LineEdit" parent="UI/InputSection"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-placeholder_text = "例如：-2, -1, 0, 1"
-
-[node name="BtnCalculate" type="Button" parent="UI/InputSection"]
-custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-text = "计算 f(x)"
-
-[node name="ResultLabel" type="Label" parent="UI/InputSection"]
-layout_mode = 2
-text = "f(x) = ?"
-
-[node name="Hint" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 225.0
-offset_right = 450.0
-offset_bottom = 280.0
-text = "注意：题干仅定义 x < 0 时 f(x) = 2^x，x ≥ 0 部分无足够条件无法计算。输入 x₀ 后可观察 D(x₀) 的可视化结果。"
+offset_bottom = 270.0
 autowrap_mode = 2
+
+[node name="ShowSolutionBtn" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 280.0
+offset_right = 450.0
+offset_bottom = 315.0
+text = "  显示解题过程"
+custom_minimum_size = Vector2(440, 35)
+
+[node name="SolutionContent" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 325.0
+offset_right = 450.0
+offset_bottom = 680.0
+autowrap_mode = 2
+visible = false
 
 [node name="Graph" type="Control" parent="."]
 layout_mode = 0
-offset_left = 520.0
+offset_left = 470.0
 offset_top = 20.0
-offset_right = 1400.0
+offset_right = 1140.0
 offset_bottom = 700.0
 script = ExtResource("2_mathviz")
