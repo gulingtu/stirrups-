@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://8j4hpxtxkqo0"]
+
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_main"]
+[ext_resource type="Script" path="res://scripts/MathVisualization.cs" id="2_mathviz"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 660.0
+offset_bottom = 300.0
+
+[node name="Title" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 630.0
+offset_bottom = 40.0
+text = "全国 I(19) 数学题目可视化"
+horizontal_alignment = 1
+
+[node name="Problem" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 630.0
+offset_bottom = 100.0
+text = "已知函数 f(x) 的定义域为 R，且当 x < 0 时，f(x) = 2^x。对于任意 x₀ ∈ R，定义集合 D(x₀) = {d ∈ R | f(x₀ + d) > f(x₀)}。"
+autowrap_mode = 2
+
+[node name="Question1" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 110.0
+offset_right = 630.0
+offset_bottom = 140.0
+text = "(1) 若 f(x) = 1 - x (x ≥ 0)，求集合 D(-1)"
+
+[node name="Question2" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 145.0
+offset_right = 630.0
+offset_bottom = 185.0
+text = "(2) 若 f(x) 为奇函数，且对于任意满足 x₁x₂ ≠ 0 的 x₁, x₂，f(x₁) ≤ f(x₂)，证明：D(x₁) ⊇ D(x₂)"
+autowrap_mode = 2
+
+[node name="Question3" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 630.0
+offset_bottom = 240.0
+text = "(3) 若 f(x) 满足：(a) 当 f(x₁) ≤ f(x₂) 时，D(x₁) ⊇ D(x₂); (b) 当 0 < x < 1 时，f(x) < f(0)。证明：(i) f(0) ≥ 1; (ii) f(x) 在 (0, +∞) 上单调递增"
+autowrap_mode = 2
+
+[node name="InputSection" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 250.0
+offset_right = 630.0
+offset_bottom = 280.0
+
+[node name="InputLabel" type="Label" parent="UI/InputSection"]
+layout_mode = 2
+text = "输入 x 值："
+
+[node name="InputX" type="LineEdit" parent="UI/InputSection"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+placeholder_text = "例如：-2, -1, 0, 1"
+
+[node name="BtnCalculate" type="Button" parent="UI/InputSection"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "计算 f(x)"
+
+[node name="ResultLabel" type="Label" parent="UI/InputSection"]
+layout_mode = 2
+text = "f(x) = ?"
+
+[node name="Graph" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_left = 0.52
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 670.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+script = ExtResource("2_mathviz")
