@@ -31,42 +31,41 @@ offset_bottom = 110.0
 text = "已知函数 f(x) 的定义域为 R，且当 x < 0 时，f(x) = 2^x。对于任意 x₀ ∈ R，定义集合 D(x₀) = {d ∈ R | f(x₀ + d) > f(x₀)}。"
 autowrap_mode = 2
 
-[node name="Question1" type="Label" parent="UI"]
+[node name="Tabs" type="HBoxContainer" parent="UI"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 120.0
 offset_right = 450.0
-offset_bottom = 145.0
-text = "(1) 若 f(x) = 1 - x (x ≥ 0)，求集合 D(-1)"
+offset_bottom = 155.0
 
-[node name="Question2" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 155.0
-offset_right = 450.0
-offset_bottom = 195.0
-text = "(2) 若 f(x) 为奇函数，且对于任意满足 x₁x₂ ≠ 0 的 x₁, x₂，f(x₁) ≤ f(x₂)，证明：D(x₁) ⊇ D(x₂)"
-autowrap_mode = 2
+[node name="Tab1" type="Button" parent="UI/Tabs"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 35)
+text = "(1) 求 D(-1)"
+flat = false
 
-[node name="Question3" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 205.0
-offset_right = 450.0
-offset_bottom = 270.0
-text = "(3) 若 f(x) 满足：(a) 当 f(x₁) ≤ f(x₂) 时，D(x₁) ⊇ D(x₂); (b) 当 0 < x < 1 时，f(x) < f(0)。证明：(i) f(0) ≥ 1; (ii) f(x) 在 (0, +∞) 上单调递增"
-autowrap_mode = 2
+[node name="Tab2" type="Button" parent="UI/Tabs"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 35)
+text = "(2) 奇函数"
+flat = false
+
+[node name="Tab3" type="Button" parent="UI/Tabs"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 35)
+text = "(3) 单调性"
+flat = false
 
 [node name="InputSection" type="HBoxContainer" parent="UI"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 290.0
+offset_top = 175.0
 offset_right = 450.0
-offset_bottom = 330.0
+offset_bottom = 215.0
 
 [node name="InputLabel" type="Label" parent="UI/InputSection"]
 layout_mode = 2
-text = "输入 x 值："
+text = "输入 x₀ 值："
 
 [node name="InputX" type="LineEdit" parent="UI/InputSection"]
 custom_minimum_size = Vector2(150, 30)
@@ -81,6 +80,15 @@ text = "计算 f(x)"
 [node name="ResultLabel" type="Label" parent="UI/InputSection"]
 layout_mode = 2
 text = "f(x) = ?"
+
+[node name="Hint" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 225.0
+offset_right = 450.0
+offset_bottom = 280.0
+text = "注意：题干仅定义 x < 0 时 f(x) = 2^x，x ≥ 0 部分无足够条件无法计算。输入 x₀ 后可观察 D(x₀) 的可视化结果。"
+autowrap_mode = 2
 
 [node name="Graph" type="Control" parent="."]
 layout_mode = 0
